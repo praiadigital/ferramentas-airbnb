@@ -1,54 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ferramentas Airbnb — kit do anfitrião do litoral</title>
-<meta name="description" content="Kit gratuito para anfitriões: calculadora de taxa Airbnb, estimador de ocupação e gerador de regras da casa. Satélite da rede praia.digital">
-<style>
-body{margin:0;font-family:system-ui,sans-serif;background:#fff5f5;color:#4a1d1d;min-height:100vh}
-header{padding:24px;text-align:center;background:linear-gradient(120deg,#ff385c,#ff7a59);color:#fff}
-nav a{color:#ffe066;margin:0 8px;text-decoration:none;font-size:14px}
-.wrap{max-width:760px;margin:auto;padding:24px}
-.tool{background:#fff;border-radius:16px;padding:22px;box-shadow:0 6px 18px rgba(255,56,92,.12);margin-bottom:18px}
-.tool h2{font-size:19px;color:#ff385c}
-label{display:block;margin:10px 0 4px;font-weight:600}
-input{width:100%;padding:11px;border-radius:10px;border:2px solid #ffe4e6;font-size:16px}
-.res{margin-top:12px;background:#fff5f5;border-radius:10px;padding:14px;font-size:16px}
-.res b{color:#ff385c}
-textarea{width:100%;min-height:150px;border-radius:10px;border:2px solid #ffe4e6;padding:12px;font-family:inherit;font-size:14px;margin-top:10px}
-.chk{display:flex;gap:8px;align-items:center;padding:4px 0}
-.chk input{width:auto;transform:scale(1.3);accent-color:#ff385c}
-.copy{margin-top:8px;background:#ff385c;color:#fff;border:none;border-radius:99px;padding:9px 20px;cursor:pointer}
-footer{padding:20px;text-align:center;font-size:13px}
-footer a{color:#ff385c}
-</style></head>
-<body>
-<header><h1>🛠️ Ferramentas Airbnb</h1><p>Kit gratuito do anfitrião de temporada no litoral</p>
-<nav><a href="https://praia.digital">Praia Digital</a><a href="https://praia.digital/area-anfitriao">Área do Anfitrião</a><a href="https://praia.digital/concierge-ia">Concierge IA</a><a href="https://praia.digital/apps">Todos os apps</a></nav></header>
-<div class="wrap">
-<div class="tool"><h2>1️⃣ Calculadora de taxa Airbnb</h2>
-<label>Valor da reserva (R$)</label><input type="number" id="t1" value="3000" oninput="c1()">
-<div class="res" id="r1"></div></div>
-<div class="tool"><h2>2️⃣ Estimador de ocupação</h2>
-<label>Nota do anúncio (1-5)</label><input type="number" id="t2a" value="4.5" step="0.1" oninput="c2()">
-<label>Quantas fotos profissionais?</label><input type="number" id="t2b" value="20" oninput="c2()">
-<label>Responde em menos de 1h? (1=sim, 0=não)</label><input type="number" id="t2c" value="1" min="0" max="1" oninput="c2()">
-<div class="res" id="r2"></div></div>
-<div class="tool"><h2>3️⃣ Gerador de regras da casa</h2>
-<div id="regras"></div>
-<button class="copy" onclick="gerar()">📋 Gerar e copiar regras</button>
-<textarea id="out" placeholder="Suas regras aparecerão aqui..."></textarea></div>
-</div>
-<footer>Rede <a href="https://praia.digital">praia.digital</a> · <a href="https://praia.digital/ferramentas">Ferramentas Pro</a> · <a href="https://praia.digital/gerador-descricoes">Gerador de Descrições</a> · <a href="https://praia.digital/marea">Maréa</a></footer>
-<script>
-function fmt(v){return 'R$ '+Math.round(v).toLocaleString('pt-BR')}
-function c1(){const v=+t1.value;r1.innerHTML=`Taxa anfitrião (3%): <b>${fmt(v*0.03)}</b> · Taxa hóspede (~14%): ${fmt(v*0.14)}<br>Você recebe: <b>${fmt(v*0.97)}</b> · Hóspede paga: ${fmt(v*1.14)}`;}
-function c2(){const base=(+t2a.value)/5*40+Math.min(+t2b.value,30)/30*25+(+t2c.value)*20+15;const o=Math.min(95,Math.round(base));
-r2.innerHTML=`Ocupação estimada: <b>${o}%</b> no mês<br>💡 Potencialize com tour virtual no <a href="https://praia.digital/tour-360">Tour 360</a> e precificação do <a href="https://praia.digital/marea">Maréa</a>.`;}
-const REGRAS=['Check-in após 14h / check-out até 11h','Proibido fumar dentro do imóvel','Não são permitidas festas ou eventos','Pets permitidos mediante aviso prévio','Silêncio após 22h (lei do condomínio)','Máximo de hóspedes conforme reserva','Devolver chaves/controles no check-out','Separar o lixo reciclável'];
-regras.innerHTML=REGRAS.map((r,i)=>`<label class="chk"><input type="checkbox" id="g${i}" checked> ${r}</label>`).join('');
-function gerar(){const sel=REGRAS.filter((r,i)=>document.getElementById('g'+i).checked).map((r,i)=>`${i+1}. ${r}`).join('\n');
-out.value='🏖️ REGRAS DA CASA\n\n'+sel+'\n\nObrigado por respeitar nosso cantinho na praia! 🌊';
-out.select();document.execCommand('copy');}
-c1();c2();
-</script></body></html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Ferramentas Airbnb — kit do anfitrião do litoral | Praia Digital</title><meta name="description" content="Kit gratuito de ferramentas para anfitriões Airbnb do litoral: preço, calendário, mensagens e checklist."><link rel="canonical" href="https://praia.digital/ferramentas-airbnb/"><style>body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#f8fafc;color:#0f172a;line-height:1.6}.hero{background:linear-gradient(135deg,#0c4a6e,#0ea5e9);color:#fff;padding:60px 20px;text-align:center}.container{max-width:900px;margin:auto;padding:30px 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}.app{display:block;background:#fff;border-radius:13px;padding:21px;text-decoration:none;color:#0f172a;box-shadow:0 3px 10px #0001;border-left:6px solid #0ea5e9}.app:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0002}small{color:#475569}footer{text-align:center;padding:24px;color:#64748b}</style></head><body><header class="hero"><h1>🏠 Ferramentas Airbnb</h1><p>Kit gratuito completo para anfitriões de temporada do litoral paulista.</p></header><main class="container"><section class="grid">
+<a class="app" href="https://praia.digital/preco-justo/">💸 <strong>Preço Justo</strong><br><small>Sua diária está barata, justa ou cara?</small></a>
+<a class="app" href="https://praia.digital/calendario-demanda/">📅 <strong>Calendário de Demanda</strong><br><small>Quando subir o preço: feriados e heatmap 2026/27.</small></a>
+<a class="app" href="https://praia.digital/calculadora-temporada/">🧮 <strong>Calculadora de Temporada</strong><br><small>Rendimento anual: bruto, líquido e yield.</small></a>
+<a class="app" href="https://praia.digital/concierge-ia/">🤖 <strong>Concierge IA</strong><br><small>Mensagens prontas: check-in, regras, avaliação.</small></a>
+<a class="app" href="https://praia.digital/checklist-anfitriao/">✅ <strong>Checklist do Anfitrião</strong><br><small>Preparação completa com progresso salvo.</small></a>
+<a class="app" href="https://praia.digital/gerador-descricoes/">✍️ <strong>Gerador de Descrições</strong><br><small>Anúncio otimizado para Airbnb e Booking.</small></a>
+<a class="app" href="https://praia.digital/tour-360/">🎥 <strong>Tour 360</strong><br><small>Checklist do tour virtual que converte.</small></a>
+<a class="app" href="https://praia.digital/temporada-ou-anual/">⚖️ <strong>Temporada ou Anual?</strong><br><small>Compare as duas estratégias de renda.</small></a>
+<a class="app" href="https://praia.digital/area-anfitriao/">🔑 <strong>Área do Anfitrião</strong><br><small>Gestão completa da sua operação.</small></a>
+</section></main><footer><a href="https://praia.digital/apps/">🌐 Apps Praia Digital</a> · <a href="https://praia.digital/">praia.digital</a></footer></body></html>
